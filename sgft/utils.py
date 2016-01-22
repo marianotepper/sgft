@@ -41,16 +41,16 @@ def plot_colorbar(cmap, labels, file_name):
     gradient = np.linspace(0, 1, 256)
     gradient = np.repeat(np.atleast_2d(gradient), 10, axis=0)
 
-    plt.imshow(gradient, cmap=cmap)
-    plt.xticks(np.linspace(-0.5, gradient.shape[1]-0.5, labels.shape[0]),
+    plt.imshow(gradient.T, cmap=cmap)
+    plt.yticks(np.linspace(-0.5, gradient.shape[1]-0.5, labels.shape[0]),
                labels)
     plt.tick_params(
-        axis='y',
+        axis='x',
         which='both',
-        left='off',
-        right='off',
-        labelleft='off',
-        labelright='off')
+        top='off',
+        bottom='off',
+        labeltop='off',
+        labelbottom='off')
     plt.savefig(file_name + '_colorbar.pdf')
 
 
